@@ -24,3 +24,12 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    navigationFragmentVersion = '2.3.1'
+    navigationUiVersion = '2.3.1'
+    navigationFragmentKtxVersion = '2.3.1'
+    navigationUiKtxVersion = '2.3.1'
+
+    materialVersion = '1.2.1'
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_first">
+
+    <fragment
+        android:id="@+id/navigation_first"
+        android:name="com.ruangaldo.video_youtube.ui.FirstFragment"
+        android:label="First" />
+
+    <fragment
+        android:id="@+id/navigation_second"
+        android:name="com.ruangaldo.video_youtube.ui.SecondFragment"
+        android:label="Second" />
+
+    <fragment
+        android:id="@+id/navigation_third"
+        android:name="com.ruangaldo.video_youtube.ui.ThirdFragment"
+        android:label="Third" />
+
+</navigation>
