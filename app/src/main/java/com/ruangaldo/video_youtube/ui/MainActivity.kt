@@ -1,13 +1,10 @@
 package com.ruangaldo.video_youtube.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.Navigation
-import com.alvayonara.mealsfood.core.base.BaseActivity
+import com.ruangaldo.video_youtube.base.BaseActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.databinding.ActivityMainBinding

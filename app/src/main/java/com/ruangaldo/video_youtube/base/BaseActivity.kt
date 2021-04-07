@@ -1,4 +1,4 @@
-package com.alvayonara.mealsfood.core.base
+package com.ruangaldo.video_youtube.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
