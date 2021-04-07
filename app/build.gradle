@@ -9,11 +9,11 @@ android {
 
     defaultConfig {
         applicationId "com.ruangaldo.video_youtube"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,6 +32,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+
     }
 }
 
@@ -52,5 +53,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationFragmentKtxVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationUiKtxVersion"
 
+
+    //Motion Layout
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayout"
     implementation "com.google.android.material:material:$materialVersion"
 }

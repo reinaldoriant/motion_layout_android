@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/iv_collapse_player" />
+        <Constraint android:id="@+id/iv_album" />
+        <Constraint android:id="@+id/tv_tittle" />
+        <Constraint android:id="@+id/tv_artist" />
+        <Constraint android:id="@+id/frame_player"/>
+        <Constraint android:id="@+id/space_bottom"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@id/iv_collapse_player" />
+        <Constraint android:id="@+id/iv_album"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.951"
+            android:layout_marginLeft="16dp" />
+        <Constraint android:id="@+id/tv_tittle" />
+        <Constraint android:id="@+id/tv_artist" />
+        <Constraint android:id="@+id/frame_player"/>
+        <Constraint android:id="@+id/space_bottom"/>
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start" />
+</MotionScene>
