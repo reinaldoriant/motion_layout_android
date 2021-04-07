@@ -34,4 +34,6 @@ ext {
     materialVersion = '1.2.1'
 
     constraintLayout = '2.0.0-rc1'
+    glideVersion = '4.11.0'
+
 }
