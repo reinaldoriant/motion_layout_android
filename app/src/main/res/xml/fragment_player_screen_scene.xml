@@ -24,12 +24,11 @@
             app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
         <Constraint
             android:id="@+id/iv_album"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            app:layout_constraintDimensionRatio="2:1"
+            android:layout_width="328dp"
+            android:layout_height="183dp"
+            android:layout_marginTop="100dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_collapse_player"
             app:layout_constraintVertical_chainStyle="packed" />
@@ -37,7 +36,7 @@
             android:id="@+id/tv_tittle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintBottom_toTopOf="@id/tv_artist"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +50,7 @@
             android:id="@+id/tv_artist"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tittle"
@@ -268,17 +267,28 @@
 
 
     </ConstraintSet>
-
     <Transition
         app:constraintSetEnd="@id/screen_normal"
         app:constraintSetStart="@+id/screen_minimize"
-        app:motionInterpolator="easeInOut"
-        motion:duration="100">
-        <OnSwipe
+        app:motionInterpolator="easeOut"
+        motion:duration="200">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@id/bg_player_scene" />
+    </Transition>
+    <Transition
+        app:constraintSetEnd="@id/screen_normal"
+        app:constraintSetStart="@+id/screen_minimize"
+        app:motionInterpolator="easeIn"
+        motion:duration="200">
+        <OnClick
+            app:clickAction="transitionToStart"
+            app:targetId="@id/iv_collapse_player" />
+       <!-- <OnSwipe
             app:dragDirection="dragUp"
             app:maxAcceleration="200"
             app:touchAnchorId="@id/bg_player_scene"
-            app:touchAnchorSide="top" />
+            app:touchAnchorSide="top" />-->
         <KeyFrameSet>
             <KeyAttribute
                 app:framePosition="100"
@@ -367,4 +377,22 @@
             </KeyAttribute>
         </KeyFrameSet>
     </Transition>
+  <!--  <Transition
+        app:constraintSetEnd="@id/screen_minimize"
+        app:constraintSetStart="@+id/screen_normal"
+        app:motionInterpolator="linear"
+        motion:duration="200">
+
+    </Transition>-->
+    <!--<Transition
+        app:constraintSetEnd="@id/screen_normal"
+        app:constraintSetStart="@+id/screen_minimize"
+        app:motionInterpolator="linear"
+        motion:duration="200">
+        <OnClick
+            app:dragDirection="dragUp"
+            app:maxAcceleration="200"
+            app:touchAnchorId="@id/bg_player_scene"
+            app:touchAnchorSide="top" />
+    </Transition>-->
 </MotionScene>
