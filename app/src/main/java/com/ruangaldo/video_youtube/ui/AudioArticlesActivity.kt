@@ -18,6 +18,11 @@ class AudioArticlesActivity : BaseActivity<ActivityAudioArticlesBinding>() {
         get() = ActivityAudioArticlesBinding::inflate
 
     override fun setup() {
+
+        setSupportActionBar(binding.myToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         _viewModelArticle = ViewModelProvider(this).get(ArticleViewModel::class.java)
         _adapter = AudioArticleListAdapter().apply {
             onItemClick = {
