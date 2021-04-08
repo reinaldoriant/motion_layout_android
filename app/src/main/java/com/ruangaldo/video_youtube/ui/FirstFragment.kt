@@ -6,6 +6,7 @@ import com.ruangaldo.video_youtube.PlayerScreen
 import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentFirstBinding
+import com.ruangaldo.video_youtube.utils.visible
 
 class FirstFragment : BaseFragment<FragmentFirstBinding>() {
     private var playScreenFragment = PlayerScreen.newInstance()
@@ -14,6 +15,8 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>() {
 
     override fun setup() {
         binding.button.setOnClickListener {
+            binding.layoutTtsPlayed.visible()
+
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playScreenFragment)
                 .commitAllowingStateLoss()

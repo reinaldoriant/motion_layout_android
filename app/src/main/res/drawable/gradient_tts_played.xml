@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Color 005FA3 -> 50% opaque, then -> add 80 -->
+    <!-- Color 00599A -> 0% opaque, then -> add 00 -->
+    <!-- References: https://stackoverflow.com/a/16890937 -->
+
+    <gradient
+        android:angle="270"
+        android:endColor="#80005FA3"
+        android:startColor="#0000599A"
+        android:type="linear" />
+
+</shape>
