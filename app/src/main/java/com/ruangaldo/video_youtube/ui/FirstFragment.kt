@@ -1,8 +1,9 @@
 package com.ruangaldo.video_youtube.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.ruangaldo.video_youtube.PlayerScreen
+import android.widget.Toast
 import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentFirstBinding
@@ -20,6 +21,10 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>() {
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playScreenFragment)
                 .commitAllowingStateLoss()
+        }
+        binding.button2.setOnClickListener {
+            Toast.makeText(requireContext(),"Hi",Toast.LENGTH_SHORT).show()
+            Log.e("Hi","Muncul ga aku?")
         }
     }
 
