@@ -9,7 +9,7 @@ object DataDummy {
         articles.add(
             Article(
                 title = "Data 1",
-                thumbnail = "https://cdn.akurat.co/images/uploads/images/akurat_20200302012538_46UhIZ.jpg",
+                thumbnail = "https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=675.0&fit=crop",
                 publishedDate = "17.00 WIB",
                 status = "Premium"
             )
