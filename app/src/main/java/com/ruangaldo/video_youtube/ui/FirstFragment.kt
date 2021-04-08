@@ -16,8 +16,7 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>() {
         binding.button.setOnClickListener {
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playScreenFragment)
-                .commitNow()
-
+                .commitAllowingStateLoss()
         }
     }
 

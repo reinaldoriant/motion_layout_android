@@ -3,43 +3,283 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
-    <ConstraintSet android:id="@+id/start">
-        <Constraint android:id="@+id/iv_collapse_player" />
-        <Constraint android:id="@+id/iv_album" />
-        <Constraint android:id="@+id/tv_tittle" />
-        <Constraint android:id="@+id/tv_artist" />
-        <Constraint android:id="@+id/frame_player" />
-        <Constraint android:id="@+id/space_bottom" />
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end">
-        <Constraint android:id="@id/iv_collapse_player" />
+    <ConstraintSet android:id="@+id/screen_normal">
+        <Constraint
+            android:id="@+id/bg_player_scene"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/iv_collapse_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
         <Constraint
             android:id="@+id/iv_album"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_collapse_player"
+            app:layout_constraintVertical_chainStyle="packed" />
+        <Constraint
+            android:id="@+id/tv_tittle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_artist"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_album"
+            app:layout_constraintVertical_chainStyle="packed">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle"
+            app:layout_constraintVertical_chainStyle="packed">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_tittle_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toTopOf="@id/iv_album">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/iv_album"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/textOrange" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_play_pause"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@id/space_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/iv_skip_next"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_pause"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_play_pause" />
+        <Constraint
+            android:id="@+id/iv_skip_pre"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_pause"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_play_pause" />
+        <Constraint
+            android:id="@+id/iv_forward_10"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_pause"
+            app:layout_constraintEnd_toStartOf="@id/iv_skip_next"
+            app:layout_constraintStart_toEndOf="@id/iv_play_pause"
+            app:layout_constraintTop_toTopOf="@id/iv_play_pause" />
+        <Constraint
+            android:id="@+id/iv_back_10"
+            android:layout_width="28dp"
+            android:layout_height="31dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_play_pause"
+            app:layout_constraintEnd_toStartOf="@id/iv_play_pause"
+            app:layout_constraintStart_toEndOf="@id/iv_skip_pre"
+            app:layout_constraintTop_toTopOf="@id/iv_play_pause"
+            app:layout_editor_absoluteX="104dp" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/screen_minimize">
+        <Constraint
+            android:id="@id/iv_collapse_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone" />
+        <Constraint
+            android:id="@+id/bg_player_scene"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/iv_album"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="@id/bg_player_scene"
+            app:layout_constraintStart_toStartOf="@id/bg_player_scene"
+            app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
+        <Constraint
+            android:id="@+id/tv_tittle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toTopOf="@id/iv_album">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/iv_album"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/textOrange" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_tittle_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toTopOf="@id/iv_album">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/textOrange" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_play_pause"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.951" />
-        <Constraint android:id="@+id/tv_tittle" />
-        <Constraint android:id="@+id/tv_artist" />
-        <Constraint android:id="@+id/frame_player" />
-        <Constraint android:id="@+id/space_bottom" />
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/bg_player_scene"
+            app:layout_constraintEnd_toEndOf="@id/bg_player_scene"
+            app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
+        <Constraint
+            android:id="@+id/iv_skip_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_skip_pre"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_forward_10"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_back_10"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/space_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+
 
     </ConstraintSet>
 
     <Transition
-        app:motionInterpolator="easeOut"
-        app:constraintSetEnd="@id/start"
-        app:constraintSetStart="@+id/end"
-        motion:duration="300" >
+        app:constraintSetEnd="@id/screen_normal"
+        app:constraintSetStart="@+id/screen_minimize"
+        app:motionInterpolator="easeInOut"
+        motion:duration="100">
         <OnClick
             app:dragDirection="dragUp"
             app:maxAcceleration="200"
             app:touchAnchorId="@+id/iv_collapse_player"
-            app:touchAnchorSide="top"/>
+            app:touchAnchorSide="top" />
     </Transition>
 </MotionScene>
