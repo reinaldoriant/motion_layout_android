@@ -279,7 +279,7 @@
         <OnClick
             app:dragDirection="dragUp"
             app:maxAcceleration="200"
-            app:touchAnchorId="@+id/iv_collapse_player"
+            app:touchAnchorId="@id/bg_player_scene"
             app:touchAnchorSide="top" />
     </Transition>
 </MotionScene>
