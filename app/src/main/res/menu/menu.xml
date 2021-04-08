@@ -4,16 +4,16 @@
     <item
         android:id="@+id/action_first_fragment"
         android:icon="@drawable/smartphone"
-        android:title="" />
+        android:title="Kompas.id" />
 
     <item
         android:id="@+id/action_second_fragment"
         android:icon="@drawable/newspaper"
-        android:title="" />
+        android:title="ePaper" />
 
     <item
         android:id="@+id/action_third_fragment"
         android:icon="@drawable/vektor"
-        android:title="" />
+        android:title="Buku" />
 
 </menu>
