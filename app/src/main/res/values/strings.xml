@@ -2,4 +2,9 @@
     <string name="app_name">video_youtube</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="judul">Temuan Baru Evakuasi Sriwijaya Air SJ-182 di Laut Kepulauan Seribu, Banten, Jawa</string>
+    <string name="content">Sekda DKI Jakarta Saefullah meninggal dunia di RSPAD Gatot Subroto, Sekda yang mendampingi lima gubernur DKI tersebut dirawat karena Covid-19 sejak 8 September 2020 lalu.</string>
 </resources>
