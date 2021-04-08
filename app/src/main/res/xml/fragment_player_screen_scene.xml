@@ -23,6 +23,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
         <Constraint
+            android:id="@+id/tv_another_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terbaru"
+            app:layout_constraintBottom_toBottomOf="@id/iv_collapse_player"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_collapse_player" />
+        <Constraint
             android:id="@+id/iv_album"
             android:layout_width="328dp"
             android:layout_height="183dp"
@@ -147,6 +156,13 @@
             android:layout_marginEnd="8dp"
             android:visibility="gone" />
         <Constraint
+            android:id="@+id/tv_another_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terbaru"
+            android:visibility="gone" />
+
+        <Constraint
             android:id="@+id/bg_player_scene"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -268,6 +284,15 @@
 
     </ConstraintSet>
     <Transition
+        app:constraintSetEnd="@+id/screen_minimize"
+        app:constraintSetStart="@+id/screen_normal"
+        app:motionInterpolator="easeOut"
+        motion:duration="200">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@id/tv_another_article" />
+    </Transition>
+    <Transition
         app:constraintSetEnd="@id/screen_normal"
         app:constraintSetStart="@+id/screen_minimize"
         app:motionInterpolator="easeOut"
@@ -284,11 +309,6 @@
         <OnClick
             app:clickAction="transitionToStart"
             app:targetId="@id/iv_collapse_player" />
-       <!-- <OnSwipe
-            app:dragDirection="dragUp"
-            app:maxAcceleration="200"
-            app:touchAnchorId="@id/bg_player_scene"
-            app:touchAnchorSide="top" />-->
         <KeyFrameSet>
             <KeyAttribute
                 app:framePosition="100"
@@ -377,22 +397,4 @@
             </KeyAttribute>
         </KeyFrameSet>
     </Transition>
-  <!--  <Transition
-        app:constraintSetEnd="@id/screen_minimize"
-        app:constraintSetStart="@+id/screen_normal"
-        app:motionInterpolator="linear"
-        motion:duration="200">
-
-    </Transition>-->
-    <!--<Transition
-        app:constraintSetEnd="@id/screen_normal"
-        app:constraintSetStart="@+id/screen_minimize"
-        app:motionInterpolator="linear"
-        motion:duration="200">
-        <OnClick
-            app:dragDirection="dragUp"
-            app:maxAcceleration="200"
-            app:touchAnchorId="@id/bg_player_scene"
-            app:touchAnchorSide="top" />
-    </Transition>-->
 </MotionScene>
