@@ -1,25 +1,32 @@
 package com.ruangaldo.video_youtube.ui
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentPlayerScreenBinding
+import com.ruangaldo.video_youtube.model.Article
+import com.ruangaldo.video_youtube.utils.cacheImage
 
 
-class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding> (){
+class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
+
+    companion object {
+        const val EXTRA_ARTICLE = "extra_article"
+    }
+
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentPlayerScreenBinding
         get() = FragmentPlayerScreenBinding::inflate
 
     override fun setup() {
-    }
-    companion object {
-        const val TAG = "PlayScreenFragment"
-        fun newInstance(): PlayerScreen {
-            val args = Bundle()
-            val playScreenFragment = PlayerScreen()
-            playScreenFragment.arguments = args
-            return playScreenFragment
+        if (arguments != null) {
+            val article: Article = requireArguments().getParcelable(EXTRA_ARTICLE)!!
+
+            binding.ivAlbum.cacheImage(article.thumbnail)
+
+            article.title.let {
+                binding.tvTittle.text = it
+                binding.tvTittleMin.text = it
+            }
         }
     }
 }
