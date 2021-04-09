@@ -1,5 +1,6 @@
 package com.ruangaldo.video_youtube.ui
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.ruangaldo.video_youtube.base.BaseFragment
@@ -27,6 +28,10 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
                 binding.tvTittle.text = it
                 binding.tvTittleMin.text = it
             }
+           /* val intent=Intent(requireActivity(),AudioArticlesActivity::class.java)
+            binding.tvAnotherArticle.setOnClickListener {
+                startActivity(intent)
+            }*/
         }
     }
 }
