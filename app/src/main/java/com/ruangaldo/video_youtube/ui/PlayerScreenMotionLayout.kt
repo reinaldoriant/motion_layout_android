@@ -22,7 +22,22 @@ class PlayerScreenMotionLayout(context: Context,attributeSet: AttributeSet?=null
             return false
         }
     })
+    init {
+        setTransitionListener(object : TransitionListener {
+            override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {
+            }
 
+            override fun onTransitionChange(p0: MotionLayout?, p1: Int, p2: Int, p3: Float) {
+            }
+
+            override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
+                hasTouchStarted = false
+            }
+
+            override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
+            }
+        })
+    }
     override fun onTouchEvent(event: MotionEvent): Boolean {
         gestureDetector.onTouchEvent(event)   //This ensures the Mini Player is maximised on single tap
         when (event.actionMasked) {
