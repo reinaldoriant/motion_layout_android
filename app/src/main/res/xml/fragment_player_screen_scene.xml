@@ -283,15 +283,15 @@
 
 
     </ConstraintSet>
-    <Transition
+ <!--   <Transition
         app:constraintSetEnd="@+id/screen_minimize"
         app:constraintSetStart="@+id/screen_normal"
-        app:motionInterpolator="easeOut"
+        app:motionInterpolator="easeIn"
         motion:duration="200">
         <OnClick
             app:clickAction="transitionToEnd"
             app:targetId="@id/tv_another_article" />
-    </Transition>
+    </Transition>-->
     <Transition
         app:constraintSetEnd="@id/screen_normal"
         app:constraintSetStart="@+id/screen_minimize"
