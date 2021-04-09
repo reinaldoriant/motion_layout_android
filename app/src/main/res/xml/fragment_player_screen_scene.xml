@@ -388,9 +388,17 @@
             </KeyAttribute>
         </KeyFrameSet>
     </Transition>
+    <Transition
+        app:constraintSetEnd="@+id/screen_close"
+        app:constraintSetStart="@+id/screen_minimize"
+        app:motionInterpolator="easeOut"
+        motion:duration="200">
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorId="@id/bg_player_scene" />
+    </Transition>
     <ConstraintSet
-        android:id="@+id/screen_close"
-        app:deriveConstraintsFrom="@+id/screen_close">
+        android:id="@+id/screen_close">
         <Constraint
             android:id="@id/iv_collapse_player"
             android:layout_width="match_parent"
@@ -532,13 +540,5 @@
                 app:customFloatValue="0.0" />
         </Constraint>
     </ConstraintSet>
-    <Transition
-        app:constraintSetEnd="@+id/screen_close"
-        app:constraintSetStart="@+id/screen_minimize"
-        app:motionInterpolator="easeIn"
-        motion:duration="200">
-        <OnSwipe
-            app:dragDirection="dragDown"
-            app:touchAnchorId="@id/bg_player_scene" />
-    </Transition>
+
 </MotionScene>
