@@ -82,29 +82,33 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title" />
 
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/audio"
-                    android:stateListAnimator="@null"
-                    app:layout_constraintEnd_toEndOf="@+id/content"
-                    app:layout_constraintStart_toStartOf="@+id/content"
-                    app:layout_constraintTop_toBottomOf="@+id/content" />
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:stateListAnimator="@null"
-                    android:text="aku Om"
-                    app:layout_constraintEnd_toEndOf="@+id/content"
-                    app:layout_constraintStart_toStartOf="@+id/content"
-                    app:layout_constraintTop_toBottomOf="@+id/button" />
+            <Button
+                android:id="@+id/button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/audio"
+                android:stateListAnimator="@null"
+                app:layout_constraintEnd_toEndOf="@+id/content"
+                app:layout_constraintStart_toStartOf="@+id/content"
+                app:layout_constraintTop_toBottomOf="@+id/content" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stateListAnimator="@null"
+                android:text="aku Om"
+                app:layout_constraintEnd_toEndOf="@+id/content"
+                app:layout_constraintStart_toStartOf="@+id/content"
+                app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
     </FrameLayout>
+
 
     <FrameLayout
         android:id="@+id/play_screen_frame_layout"

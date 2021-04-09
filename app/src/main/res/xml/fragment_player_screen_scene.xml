@@ -283,15 +283,6 @@
 
 
     </ConstraintSet>
- <!--   <Transition
-        app:constraintSetEnd="@+id/screen_minimize"
-        app:constraintSetStart="@+id/screen_normal"
-        app:motionInterpolator="easeIn"
-        motion:duration="200">
-        <OnClick
-            app:clickAction="transitionToEnd"
-            app:targetId="@id/tv_another_article" />
-    </Transition>-->
     <Transition
         app:constraintSetEnd="@id/screen_normal"
         app:constraintSetStart="@+id/screen_minimize"
@@ -318,7 +309,7 @@
                     app:customFloatValue="1.0" />
             </KeyAttribute>
             <KeyAttribute
-                app:framePosition="70"
+                app:framePosition="95"
                 app:motionTarget="@id/tv_tittle">
                 <CustomAttribute
                     app:attributeName="alpha"
@@ -335,7 +326,7 @@
             </KeyAttribute>
 
             <KeyAttribute
-                app:framePosition="80"
+                app:framePosition="95"
                 app:motionTarget="@id/tv_artist">
                 <CustomAttribute
                     app:attributeName="alpha"
@@ -371,7 +362,7 @@
             </KeyAttribute>
 
             <KeyAttribute
-                app:framePosition="70"
+                app:framePosition="95"
                 app:motionTarget="@id/tv_tittle_min">
                 <CustomAttribute
                     app:attributeName="alpha"
@@ -389,12 +380,165 @@
             </KeyAttribute>
 
             <KeyAttribute
-                app:framePosition="70"
+                app:framePosition="95"
                 app:motionTarget="@id/tv_artist_min">
                 <CustomAttribute
                     app:attributeName="alpha"
                     app:customFloatValue="0.0" />
             </KeyAttribute>
         </KeyFrameSet>
+    </Transition>
+    <ConstraintSet
+        android:id="@+id/screen_close"
+        app:deriveConstraintsFrom="@+id/screen_close">
+        <Constraint
+            android:id="@id/iv_collapse_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone" />
+        <Constraint
+            android:id="@+id/tv_another_article"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terbaru"
+            android:visibility="gone" />
+
+        <Constraint
+            android:id="@+id/bg_player_scene"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/iv_album"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/bg_player_scene"
+            app:layout_constraintStart_toStartOf="@id/bg_player_scene"
+            app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
+        <Constraint
+            android:id="@+id/tv_tittle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toTopOf="@id/iv_album">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_album"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/textGray" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_tittle_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toTopOf="@id/iv_album">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/tv_artist_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@id/iv_album"
+            app:layout_constraintTop_toBottomOf="@id/tv_tittle">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="1.0" />
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/textGray" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_play_pause"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="16dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/bg_player_scene"
+            app:layout_constraintEnd_toEndOf="@id/bg_player_scene"
+            app:layout_constraintTop_toTopOf="@id/bg_player_scene" />
+        <Constraint
+            android:id="@+id/iv_skip_next"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_skip_pre"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_forward_10"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/iv_back_10"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/space_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <CustomAttribute
+                app:attributeName="alpha"
+                app:customFloatValue="0.0" />
+        </Constraint>
+    </ConstraintSet>
+    <Transition
+        app:constraintSetEnd="@+id/screen_close"
+        app:constraintSetStart="@+id/screen_minimize"
+        app:motionInterpolator="easeIn"
+        motion:duration="200">
+        <OnSwipe
+            app:dragDirection="dragDown"
+            app:touchAnchorId="@id/bg_player_scene" />
     </Transition>
 </MotionScene>
