@@ -42,4 +42,10 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
             Log.e("Hi", "Muncul ga aku?")
         }
     }
+
+    fun changeToPlaylist() {
+        childFragmentManager.beginTransaction()
+            .replace(R.id.container_first_page, AudioArticlesActivity())
+            .commitAllowingStateLoss()
+    }
 }
