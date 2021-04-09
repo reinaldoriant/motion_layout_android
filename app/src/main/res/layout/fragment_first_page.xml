@@ -80,23 +80,23 @@
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:stateListAnimator="@null"
-                android:text="Penceten Om"
+                android:background="@drawable/audio"
                 app:layout_constraintEnd_toEndOf="@+id/content"
                 app:layout_constraintStart_toStartOf="@+id/content"
                 app:layout_constraintTop_toBottomOf="@+id/content" />
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:stateListAnimator="@null"
-                android:text="aku Om"
-                app:layout_constraintEnd_toEndOf="@+id/content"
-                app:layout_constraintStart_toStartOf="@+id/content"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+<!--            <Button-->
+<!--                android:id="@+id/button2"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:stateListAnimator="@null"-->
+<!--                android:text="aku Om"-->
+<!--                app:layout_constraintEnd_toEndOf="@+id/content"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/content"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/button" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

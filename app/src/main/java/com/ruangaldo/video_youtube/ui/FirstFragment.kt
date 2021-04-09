@@ -1,17 +1,12 @@
 package com.ruangaldo.video_youtube.ui
 
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentFirstBinding
-import com.ruangaldo.video_youtube.ui.PlayerScreen.Companion.EXTRA_ARTICLE
 import com.ruangaldo.video_youtube.utils.DataDummy
-import com.ruangaldo.video_youtube.utils.cacheImage
-import com.ruangaldo.video_youtube.utils.visible
 
 class FirstFragment : BaseFragment<FragmentFirstBinding>() {
     // Get one data dummy
@@ -32,11 +27,12 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>() {
 //            val playerScreenFragment = PlayerScreen()
 //            playerScreenFragment.arguments = mBundle
 
-        val playerScreenFragment = FirstPageFirstFragment()
+        val firstPageFirstFragment = FirstPageFirstFragment()
 
             childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, playerScreenFragment)
+                .replace(R.id.fragment_container, firstPageFirstFragment)
                 .commitAllowingStateLoss()
+
 //        }
 //        binding.button2.setOnClickListener {
 //            Toast.makeText(requireContext(),"Hi",Toast.LENGTH_SHORT).show()

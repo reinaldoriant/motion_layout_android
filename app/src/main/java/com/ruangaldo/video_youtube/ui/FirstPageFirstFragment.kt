@@ -37,9 +37,9 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
                 .replace(R.id.play_screen_frame_layout, playerScreenFragment)
                 .commitAllowingStateLoss()
         }
-        binding.button2.setOnClickListener {
-            Toast.makeText(requireContext(), "Hi", Toast.LENGTH_SHORT).show()
-            Log.e("Hi", "Muncul ga aku?")
-        }
+//        binding.button2.setOnClickListener {
+//            Toast.makeText(requireContext(), "Hi", Toast.LENGTH_SHORT).show()
+//            Log.e("Hi", "Muncul ga aku?")
+//        }
     }
 }
