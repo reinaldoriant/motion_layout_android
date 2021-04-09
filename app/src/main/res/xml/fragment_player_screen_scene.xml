@@ -297,7 +297,7 @@
         app:constraintSetStart="@+id/screen_minimize"
         app:motionInterpolator="easeOut"
         motion:duration="200">
-        <OnClick
+        <OnSwipe
             app:clickAction="transitionToEnd"
             app:targetId="@id/bg_player_scene" />
     </Transition>
