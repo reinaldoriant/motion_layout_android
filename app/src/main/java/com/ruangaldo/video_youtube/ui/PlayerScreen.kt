@@ -1,6 +1,5 @@
 package com.ruangaldo.video_youtube.ui
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
@@ -38,8 +37,7 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
             }*/
 
             binding.tvAnotherArticle.setOnClickListener {
-                // Call func changeToPlayList() from FirstPageFirstFragment to replace parent layout.
-                (parentFragment as FirstPageFirstFragment).changeToPlaylist()
+                initPlaylist()
 
                 // Call transition to start (minimize) programatically.
                 lifecycleScope.launch {
@@ -47,6 +45,21 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
                     binding.layoutPlayerScreen.transitionToStart()
                 }
             }
+        }
+    }
+
+    private fun initPlaylist() {
+        childFragmentManager.beginTransaction()
+            .replace(R.id.frame_audio_playlist, AudioArticlesFragment())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    fun exitPlaylist() {
+        // Call transition to end (maximize) programatically.
+        lifecycleScope.launch {
+            delay(200)
+            binding.layoutPlayerScreen.transitionToEnd()
         }
     }
 }
