@@ -34,6 +34,7 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
 
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playerScreenFragment)
+                .addToBackStack(null) // used to enable popBackStack().
                 .commitAllowingStateLoss()
         }
 
