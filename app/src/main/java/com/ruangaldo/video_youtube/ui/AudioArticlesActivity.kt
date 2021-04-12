@@ -51,7 +51,7 @@ class AudioArticlesActivity : BaseFragment<ActivityAudioArticlesBinding>() {
         val playScreen= PlayerScreen()
         binding.ivBack.setOnClickListener {
             childFragmentManager.beginTransaction()
-                .replace(R.id.view_playlist,playScreen)
+                .replace(R.id.fragment_container,playScreen)
                 .commitNowAllowingStateLoss()
             Log.e("Tes back","bisa ga?")
         }
