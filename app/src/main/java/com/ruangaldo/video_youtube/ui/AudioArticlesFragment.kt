@@ -1,37 +1,25 @@
 package com.ruangaldo.video_youtube.ui
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
-import com.ruangaldo.video_youtube.databinding.ActivityAudioArticlesBinding
+import com.ruangaldo.video_youtube.databinding.FragmentAudioArticlesBinding
 import com.ruangaldo.video_youtube.ui.adapter.AudioArticleListAdapter
 import com.ruangaldo.video_youtube.viewmodel.ArticleViewModel
 
 
-class AudioArticlesActivity : BaseFragment<ActivityAudioArticlesBinding>() {
+class AudioArticlesFragment : BaseFragment<FragmentAudioArticlesBinding>() {
 
     private lateinit var _viewModelArticle: ArticleViewModel
     private lateinit var _adapter: AudioArticleListAdapter
 
-//    override val bindingInflater: (LayoutInflater) -> ActivityAudioArticlesBinding
-//        get() = ActivityAudioArticlesBinding::inflate
-
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ActivityAudioArticlesBinding
-        get() = ActivityAudioArticlesBinding::inflate
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentAudioArticlesBinding
+        get() = FragmentAudioArticlesBinding::inflate
 
     override fun setup() {
-
-//        setSupportActionBar(binding.myToolbar)
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar?.setDisplayShowHomeEnabled(true)
-
         _viewModelArticle = ViewModelProvider(this).get(ArticleViewModel::class.java)
         _adapter = AudioArticleListAdapter().apply {
             onItemClick = {
@@ -48,12 +36,19 @@ class AudioArticlesActivity : BaseFragment<ActivityAudioArticlesBinding>() {
         _viewModelArticle.getDummyAudioArticles().observe(this, {
             _adapter.setArticleList(it)
         })
-        val playScreen= PlayerScreen()
+
+        /**
+         * Exit Audio Articles Fragment by using popBackStack().
+         * First add .addToBackStack(null) in function initPlaylist() located in FirstPageFirstFragment.
+         *
+         * Using parentFragmentManager (replacement deprecated fragmentManager),
+         * Source: https://stackoverflow.com/a/60055145
+         *
+         * Call exitPlaylist() function from parentFragment PlayerScreen to transition from minimize to maximize.
+         */
         binding.ivBack.setOnClickListener {
-            childFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container,playScreen)
-                .commitNowAllowingStateLoss()
-            Log.e("Tes back","bisa ga?")
+            parentFragmentManager.popBackStack()
+            (parentFragment as PlayerScreen).exitPlaylist()
         }
     }
 }

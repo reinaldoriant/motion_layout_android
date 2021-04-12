@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
-import com.ruangaldo.video_youtube.databinding.FragmentFirstBinding
 import com.ruangaldo.video_youtube.databinding.FragmentFirstPageBinding
 import com.ruangaldo.video_youtube.ui.PlayerScreen.Companion.EXTRA_ARTICLE
 import com.ruangaldo.video_youtube.utils.DataDummy
@@ -35,17 +34,13 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
 
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playerScreenFragment)
+                .addToBackStack(null) // used to enable popBackStack().
                 .commitAllowingStateLoss()
         }
+
         binding.button2.setOnClickListener {
             Toast.makeText(requireContext(), "Hi", Toast.LENGTH_SHORT).show()
             Log.e("Hi", "Muncul ga aku?")
         }
-    }
-
-    fun changeToPlaylist() {
-        childFragmentManager.beginTransaction()
-            .replace(R.id.container_first_page, AudioArticlesActivity())
-            .commitAllowingStateLoss()
     }
 }
