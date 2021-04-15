@@ -5,13 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentFirstPageBinding
+import com.ruangaldo.video_youtube.model.MessageEvent
 import com.ruangaldo.video_youtube.ui.PlayerScreen.Companion.EXTRA_ARTICLE
 import com.ruangaldo.video_youtube.utils.DataDummy
 import com.ruangaldo.video_youtube.utils.cacheImage
 import com.ruangaldo.video_youtube.utils.visible
+import org.greenrobot.eventbus.EventBus
 
 class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
     // Get one data dummy
@@ -19,6 +20,8 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFirstPageBinding
         get() = FragmentFirstPageBinding::inflate
+
+
 
     override fun setup() {
         binding.topImage.cacheImage(this._dataDummy.thumbnail)
@@ -32,10 +35,14 @@ class FirstPageFirstFragment : BaseFragment<FragmentFirstPageBinding>() {
             val playerScreenFragment = PlayerScreen()
             playerScreenFragment.arguments = mBundle
 
+            val newMessageToSend=MessageEvent("run")
+            EventBus.getDefault().post(newMessageToSend)
+
+            /*
             childFragmentManager.beginTransaction()
                 .replace(R.id.play_screen_frame_layout, playerScreenFragment)
                 .addToBackStack(null) // used to enable popBackStack().
-                .commitAllowingStateLoss()
+                .commitAllowingStateLoss()*/
         }
 
         binding.button2.setOnClickListener {

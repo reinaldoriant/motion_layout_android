@@ -10,9 +10,12 @@ import com.ruangaldo.video_youtube.R
 import com.ruangaldo.video_youtube.base.BaseFragment
 import com.ruangaldo.video_youtube.databinding.FragmentPlayerScreenBinding
 import com.ruangaldo.video_youtube.model.Article
+import com.ruangaldo.video_youtube.model.MessageEvent
+import com.ruangaldo.video_youtube.model.MessageHideEvent
 import com.ruangaldo.video_youtube.utils.cacheImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.greenrobot.eventbus.EventBus
 
 
 class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
@@ -34,10 +37,10 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
                 binding.tvTittle.text = it
                 binding.tvTittleMin.text = it
             }
-           /* val intent=Intent(requireActivity(),AudioArticlesActivity::class.java)
-            binding.tvAnotherArticle.setOnClickListener {
-                startActivity(intent)
-            }*/
+            /* val intent=Intent(requireActivity(),AudioArticlesActivity::class.java)
+             binding.tvAnotherArticle.setOnClickListener {
+                 startActivity(intent)
+             }*/
 
             binding.tvAnotherArticle.setOnClickListener {
                 initPlaylist()
@@ -65,7 +68,14 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
                     if (p1 == R.id.screen_close) {
                         // Call popBackStack() to exit PlayerScreen fragment.
                         parentFragmentManager.popBackStack()
-                        Toast.makeText(requireActivity(), "player screen closed.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireActivity(),
+                            "player screen closed.",
+                            Toast.LENGTH_LONG).show()
+                        val newMessageToSend = MessageHideEvent("hide")
+                        EventBus.getDefault().post(newMessageToSend)
+                    } else if (p1 == R.id.screen_normal) {
+                        val newMessageToSend = MessageHideEvent("hide")
+                        EventBus.getDefault().post(newMessageToSend)
                     }
                 }
 
@@ -82,13 +92,13 @@ class PlayerScreen : BaseFragment<FragmentPlayerScreenBinding>() {
 
     private fun initPlaylist() {
         childFragmentManager.beginTransaction()
-            .replace(R.id.frame_audio_playlist, AudioArticlesFragment())
+            .replace(R.id.play_screen_frame_layout, AudioArticlesFragment())
             .addToBackStack(null)
             .commit()
     }
 
     fun exitPlaylist() {
-        // Call transition to end (maximize) programatically.
+        // Call transition to end (maximize) programatically
         lifecycleScope.launch {
             delay(200)
             binding.layoutPlayerScreen.transitionToEnd()
